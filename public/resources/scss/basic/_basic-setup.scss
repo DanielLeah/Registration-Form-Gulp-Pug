@@ -1,0 +1,45 @@
+/* ----------------------------- */
+/* BASIC SETUP */
+/* ----------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #9f6060;
+	color: #555;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
+}
+
+.row {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+section {
+    margin: 10% 10%;
+    background-color: #fff;
+	padding: 80px 0;
+}
+
+.box {
+	padding: 1%;
+}
+
+/* --- HEADINGS --- */
+h1 {
+	margin: 0;
+	margin-bottom: 20px;
+	color: #939393;
+	font-size: 240%;
+	word-spacing: 4px;
+	letter-spacing: 1px;
+    text-align: center;
+}
+
