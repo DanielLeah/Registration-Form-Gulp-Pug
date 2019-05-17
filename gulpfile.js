@@ -15,6 +15,8 @@
 //npm install gulp-plumber --save-dev
 //npm install gulp-sourcemaps --save-dev //debugging
 //npm install gulp-sass --save-dev
+//npm install gulp-watch-pug --save-dev
+
 
 //PATHS
 var JS_PATH = 'public/resources/js/**/*.js';
@@ -31,7 +33,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var styleScss = require('gulp-sass');
-
+var gulpWatchPug = require('gulp-watch-pug');
 //Handlebars
 var handlebars = require('gulp-handlebars');
 var handlebarsLib = require('handlebars');
@@ -108,6 +110,13 @@ gulp.task('templates', function(){
         .pipe(livereload());
 });
 
+gulp.task('pug-watch', function(){
+    console.log('starting pug task');
+    return gulp.src('*.pug') 
+        .pipe(livereload());
+});
+
+
 //Default
 gulp.task('default',gulp.series('scripts', 'styles-scss', 'templates', function(done){
     console.log('starting default task');
@@ -122,4 +131,5 @@ gulp.task('watch',gulp.series('default', function(){
     gulp.watch(JS_PATH, gulp.series('scripts'));
     gulp.watch('public/resources/scss/**/*.scss', gulp.series('styles-scss'));
     gulp.watch(TEMPLATES_PATH, gulp.series('templates'));
+    gulp.watch('*.pug', gulp.series('pug-watch'));
 }));
